@@ -1,9 +1,11 @@
 import json
 
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from app1.models import Links
 from django.http import JsonResponse
 
+@login_required
 def index_page(request):
     # вывод в консоль значений из БД(models)
     all_links = Links.objects.all()

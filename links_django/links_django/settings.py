@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-h&)g1=f4%#027swyhrvfaggf^n&m*cfy$@i7!i3r4q5$0d!3p%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '10.0.2.15', '0.0.0.0', '192.168.56.101']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', '192.168.56.101']
 
 
 # Application definition
@@ -56,7 +56,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['templates'],
-        'APP_DIRS': True,
+#        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -123,3 +124,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = '/'
