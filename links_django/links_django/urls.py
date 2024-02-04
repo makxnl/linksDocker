@@ -25,7 +25,7 @@ urlpatterns = [
     path('', index_page),
     path('history.html/', history_page),
     path("create/", create),
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('accounts/', include('django.contrib.auth.urls')),
 ]
 
 

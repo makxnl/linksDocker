@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="width: 100%; height: 100%;">
+<html style="width: 100%; height: 100%;" xmlns:type="http://www.w3.org/1999/xhtml">
 
 <head>
 
@@ -25,6 +25,7 @@
 		function goToHistoryPage() {
 			document.location.href = 'history.html';
 		}
+
 	</script>
 
 	<style type="text/css">
@@ -44,6 +45,11 @@
 			display: flex;
 			justify-content: right;
 		}
+
+		.logout {
+			display: flex;
+			justify-content: right;
+		}
 	</style>
 
 	<title>Links</title>
@@ -51,16 +57,20 @@
 
 <body style="width: 100%; height: 100%; margin: 0;">
 
+	<div class="logout">
+		<button onclick="location.href='{% url 'logout' %}?next=/'">Logout</button>
+	</div>
+
 	<div class="goToHistoryPage">
 		<button onclick="goToHistoryPage()">History</button>
 	</div>
 
 	<div class="main_div">
 		<div>
-			<input name="link" id="link" style="width: 600px;" type:"text" placeholder="Link">
+			<input name="link" id="link" style="width: 600px;" type="text" placeholder="Link">
 		</div>
 		<div>
-			<input name="description" id="description" style="width: 600px;" type:"text" placeholder="Description">
+			<input name="description" id="description" style="width: 600px;" type="text" placeholder="Description">
 		</div>
 		<div>
 			<button onclick="save()" type="submit">Send</button>
