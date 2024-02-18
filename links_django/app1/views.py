@@ -20,7 +20,7 @@ def create(request):
         link = data['link']
         desc = data['description']
         links = Links()
-        links.description = link
-        links.link = desc
+        links.description = desc
+        links.link = link
         links.save()
     return JsonResponse({'success': 'Успех'})
