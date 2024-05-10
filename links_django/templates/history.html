@@ -2,46 +2,65 @@
 <html style="width: 100%; height: 100%;">
 <head>
 
-	<script>
+    <script>
 		function goToMainPage() {
 		document.location.href = '/';
 	}
-	</script>
 
-	<style type="text/css">
+<!--		function deleteRecord(recordId) {-->
+<!--        if(confirm("Вы уверены, что хотите удалить эту запись?")) {-->
+<!--            fetch('deleteRecord/', {-->
+<!--                method: 'POST',-->
+<!--                headers: {-->
+<!--                    'Content-Type': 'application/json'-->
+<!--                },-->
+<!--                body: JSON.stringify({ i.id })-->
+<!--            })-->
+<!--            .then(response => {-->
+<!--                if(response.ok) {-->
+<!--                    window.location.reload(); // Перезагрузить страницу после удаления записи-->
+<!--                } else {-->
+<!--                    alert("Ошибка при удалении записи");-->
+<!--                }-->
+<!--            });-->
+<!--        }-->
+<!--    }-->
+
+    </script>
+
+    <style type="text/css">
 		.main_div {
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
 		}
-		.main_div > div {
-			margin: 5px;
-		}
-
 		.goToMainPage {
 			display: flex;
 			justify-content: right;
 		}
+		.deleteItem {
+			margin-top: 20px;
+			padding-bottom:: 0px;
+		}
 
-	</style>
-
-	<title>History</title>
+    </style>
+    <title>History</title>
 </head>
 
 <body style="width: 100%; height: 100%; margin: 0;">
 
-	<div class="goToMainPage">
-		<button onclick="goToMainPage()" name="button">Back</button>
-	</div>
+<div class="goToMainPage">
+    <button onclick="goToMainPage()" name="back">Back</button>
+</div>
 
-	<div class="main_div">
-		{%for i in data%}
-		{{i.description}}
-		<br>
-		<a href="{{i.link}}">{{i.link}}</a>
-		<p>---------------------------------------------------------------------------------</p>
-		{%endfor%}
-	</div>
+<div class="main_div">
+    {%for i in data%}
+    {{i.description}}
+    <a href="{{i.link}}">{{i.link}}</a>
+<!--    <button class="deleteItem" onclick="deleteItem({{ i.id }})">Удалить</button>-->
+    <p>---------------------------------------------------------------------------------</p>
+    {%endfor%}
+</div>
 </body>
 </html>

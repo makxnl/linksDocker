@@ -13,6 +13,9 @@ def history_page(request):
     all_links = Links.objects.all()
     return render(request, 'history.html', {'data': all_links})
 
+def cert_page(request):
+    return render(request, 'cert.html')
+
 def create(request):
     print (request.body)
     if request.method == "POST":
@@ -23,4 +26,11 @@ def create(request):
         links.description = desc
         links.link = link
         links.save()
+    return JsonResponse({'success': 'Успех'})
+
+def deleteRecord(request, id):
+    print(id)
+    if request.method == "POST":
+        links = Links.objects.get(id=id)
+        links.objects.delete()
     return JsonResponse({'success': 'Успех'})

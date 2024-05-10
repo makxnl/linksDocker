@@ -6,6 +6,3 @@ class Links(models.Model):
 
     def __str__(self):
         return f'{self.description} {self.link}'
-
-# class Users(models.Model):
-#     username

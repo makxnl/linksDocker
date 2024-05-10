@@ -18,7 +18,8 @@ from django.urls import path, include
 from app1.views import index_page
 from app1.views import history_page
 from app1.views import create
-
+from app1.views import deleteRecord
+from app1.views import cert_page
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,6 +27,8 @@ urlpatterns = [
     path('history.html/', history_page),
     path("create/", create),
     path('accounts/', include('django.contrib.auth.urls')),
+    path("deleteRecord/", deleteRecord, name='deleteRecord'),
+    path('cert.html/', cert_page)
 ]
 
 
