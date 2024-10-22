@@ -5,3 +5,9 @@
 в БД. На странице 'история' можно просмотреть сохраненные записи(записи из БД).
 
 docker run --rm -v linksStorage:/home/links_django -d -p 80:8000 myapp
+
+testuser
+193Mm...8
+
+admin
+1...w
